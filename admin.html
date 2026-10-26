@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  >
+
+  <title>Owner Dashboard | Romeo Brothers</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <script
+    src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
+    defer
+  ></script>
+
+  <script src="config.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+  <header class="navbar">
+    <a href="index.html" class="brand">
+      <span class="brand-mark">RB<span>.</span></span>
+      <span class="brand-name">ROMEO BROTHERS</span>
+    </a>
+
+    <a href="index.html" class="outline-button">
+      Back to home
+    </a>
+  </header>
+
+  <main>
+    <section id="login-panel" class="panel login-panel">
+      <p class="eyebrow">PRIVATE OWNER ACCESS</p>
+      <h1 class="page-title">Owner dashboard</h1>
+
+      <p class="muted">
+        Sign in to view registered teams.
+      </p>
+
+      <form id="login-form">
+        <label for="owner-email">
+          Owner email
+          <input
+            id="owner-email"
+            name="email"
+            type="email"
+            autocomplete="username"
+            placeholder="Your owner email"
+            required
+          >
+        </label>
+
+        <label for="owner-password" class="spaced-label">
+          Owner password
+          <input
+            id="owner-password"
+            name="password"
+            type="password"
+            autocomplete="current-password"
+            placeholder="Your password"
+            required
+          >
+        </label>
+
+        <button class="button full-button" type="submit">
+          Unlock dashboard ↗
+        </button>
+      </form>
+    </section>
+
+    <p id="admin-status" role="status"></p>
+
+    <section id="dashboard" hidden>
+      <div class="dashboard-heading">
+        <div>
+          <p class="eyebrow">OWNER ACCESS</p>
+          <h1 class="page-title">Registered teams</h1>
+          <p id="team-count" class="muted"></p>
+        </div>
+
+        <div class="dashboard-actions">
+          <button
+            id="refresh-button"
+            class="outline-button"
+            type="button"
+          >
+            Refresh
+          </button>
+
+          <button
+            id="logout-button"
+            class="outline-button"
+            type="button"
+          >
+            Log out
+          </button>
+        </div>
+      </div>
+
+      <p class="muted">
+        All registrations are pending payment and slot confirmation.
+      </p>
+
+      <label for="team-search">
+        Search registrations
+        <input
+          id="team-search"
+          type="search"
+          placeholder="Team, player, UID, phone, email…"
+        >
+      </label>
+
+      <div id="teams-list"></div>
+    </section>
+  </main>
+
+  <footer>
+    Romeo Brothers · Private owner dashboard
+  </footer>
+</body>
+</html>

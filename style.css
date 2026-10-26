@@ -95,7 +95,6 @@ main {
 
 .eyebrow {
   margin: 0;
-
   color: var(--accent);
   font-size: 10px;
   font-weight: 800;
@@ -108,9 +107,8 @@ main {
 }
 
 .section-description {
-  max-width: 370px;
+  max-width: 390px;
   margin: 0;
-
   color: var(--muted);
   font-size: 14px;
 }
@@ -118,6 +116,26 @@ main {
 a:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 5px;
+}
+
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 16px;
+  z-index: 10;
+
+  padding: 12px 18px;
+
+  background: var(--accent);
+  color: #101408;
+
+  border-radius: 8px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  top: 16px;
 }
 
 
@@ -145,7 +163,6 @@ a:focus-visible {
   display: inline-flex;
   align-items: center;
   gap: 12px;
-
   text-decoration: none;
 }
 
@@ -174,6 +191,10 @@ a:focus-visible {
 }
 
 .nav-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+
   color: #c8cdbf;
   font-size: 12px;
   text-decoration: none;
@@ -248,6 +269,7 @@ a:focus-visible {
   display: inline-flex;
   align-items: center;
   gap: 10px;
+  min-height: 44px;
 
   font-size: 12px;
   text-decoration: none;
@@ -271,6 +293,11 @@ a:focus-visible {
   padding: 72px 0 62px;
 }
 
+.hero-content,
+.hero-visual {
+  min-width: 0;
+}
+
 .tournament-label {
   display: inline-flex;
   align-items: center;
@@ -278,11 +305,11 @@ a:focus-visible {
 
   padding: 8px 12px;
 
-  border: 1px solid #3f482c;
-  border-radius: 999px;
-
   color: #d4dfb5;
   background: rgba(230, 255, 120, 0.035);
+
+  border: 1px solid #3f482c;
+  border-radius: 999px;
 
   font-size: 9px;
   font-weight: 700;
@@ -290,11 +317,13 @@ a:focus-visible {
 }
 
 .label-dot {
+  flex: 0 0 auto;
+
   width: 6px;
   height: 6px;
 
-  border-radius: 50%;
   background: var(--accent);
+  border-radius: 50%;
 }
 
 .hero h1 {
@@ -338,7 +367,6 @@ a:focus-visible {
 
 .fact-label {
   display: block;
-
   margin-bottom: 6px;
 
   color: var(--muted);
@@ -351,17 +379,40 @@ a:focus-visible {
   font-weight: 700;
 }
 
-.deadline-note {
-  max-width: 430px;
+.availability-notice {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
 
-  margin-top: 16px;
+  margin-top: 20px;
+  padding: 13px;
 
-  color: #bec59f;
-  font-size: 11px;
+  background: rgba(230, 255, 120, 0.035);
+  border: 1px solid #465131;
+  border-radius: 9px;
 }
 
-.hero-visual {
-  min-width: 0;
+.availability-notice > span {
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+
+  color: var(--accent);
+  border: 1px solid #6c7d42;
+  border-radius: 50%;
+
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.availability-notice p {
+  margin: 0;
+  color: #bec8a7;
+  font-size: 11px;
 }
 
 .poster-frame {
@@ -380,7 +431,6 @@ a:focus-visible {
   display: block;
   width: 100%;
   height: auto;
-
   border-radius: 10px;
 }
 
@@ -476,7 +526,6 @@ a:focus-visible {
 
 .stat-description {
   margin: 13px 0 0;
-
   color: var(--muted);
   font-size: 11px;
 }
@@ -512,7 +561,6 @@ a:focus-visible {
 
 .info-strip p {
   margin: 0;
-
   color: #b4bda7;
   font-size: 11px;
 }
@@ -552,7 +600,6 @@ a:focus-visible {
 
   margin: 0;
   padding: 0;
-
   list-style: none;
 }
 
@@ -570,7 +617,6 @@ a:focus-visible {
 
 .rule-number {
   flex: 0 0 auto;
-
   padding-top: 2px;
 
   color: var(--accent);
@@ -585,7 +631,6 @@ a:focus-visible {
 
 .rule-card p {
   margin: 5px 0 0;
-
   color: var(--muted);
   font-size: 11px;
 }
@@ -597,7 +642,7 @@ a:focus-visible {
 
 
 /* ==========================================
-   REGISTRATION
+   REGISTRATION OVERVIEW
    ========================================== */
 
 .registration-section {
@@ -607,6 +652,11 @@ a:focus-visible {
   gap: 45px;
 
   padding: 40px;
+}
+
+.registration-copy,
+.registration-card {
+  min-width: 0;
 }
 
 .registration-copy h2 {
@@ -642,13 +692,11 @@ a:focus-visible {
 
 .deadline-alert p {
   margin: 0;
-
   color: #b8c19f;
   font-size: 11px;
 }
 
 .registration-card {
-  min-width: 0;
   padding: 26px;
 
   background: #10140c;
@@ -656,29 +704,172 @@ a:focus-visible {
   border-radius: 16px;
 }
 
-.registration-price {
-  margin: 22px 0 12px;
+.registration-steps {
+  display: grid;
+  gap: 22px;
+
+  margin: 25px 0;
+  padding: 0;
+  list-style: none;
+}
+
+.registration-steps li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.step-number {
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+
+  width: 29px;
+  height: 29px;
 
   color: var(--accent);
-  font-size: 54px;
+  border: 1px solid #59663d;
+  border-radius: 50%;
+
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.registration-steps h3 {
+  margin: 0;
+  color: #e2e8d5;
+  font-size: 13px;
+}
+
+.registration-steps p {
+  margin: 5px 0 0;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+
+/* ==========================================
+   GPAY PAYMENT SECTION
+   ========================================== */
+
+.payment-section {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: 45px;
+
+  padding: 40px;
+}
+
+.payment-copy,
+.qr-card {
+  min-width: 0;
+}
+
+.payment-copy h2 {
+  font-size: clamp(30px, 4vw, 46px);
+}
+
+.payment-copy h2 span {
+  color: var(--accent);
+}
+
+.payment-amount {
+  margin: 25px 0;
+
+  color: var(--accent);
+  font-size: 62px;
   font-weight: 800;
   line-height: 1;
   letter-spacing: -2px;
 }
 
-.registration-price span {
-  color: #a2af90;
-  font-size: 12px;
+.payment-amount span {
+  color: #acb79a;
+  font-size: 13px;
   font-weight: 400;
   letter-spacing: 0;
 }
 
-.registration-card .muted {
+.payment-checklist {
+  display: grid;
+  gap: 11px;
+
+  padding-left: 18px;
+  margin: 25px 0;
+
+  color: #c6ceba;
   font-size: 12px;
 }
 
-.registration-card .button {
-  margin-top: 12px;
+.payment-checklist li::marker {
+  color: var(--accent);
+}
+
+.payment-warning {
+  padding: 14px;
+
+  background: rgba(230, 255, 120, 0.04);
+  border: 1px solid #526237;
+  border-radius: 9px;
+
+  color: #c3cda9;
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+.qr-card {
+  padding: 25px;
+
+  background: #10140c;
+  border: 1px solid #526237;
+  border-radius: 16px;
+}
+
+.payment-qr-frame {
+  width: min(100%, 260px);
+  margin: 24px auto;
+  padding: 18px;
+
+  background: #ffffff;
+  border-radius: 14px;
+}
+
+.payment-qr {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.payment-recipient {
+  margin: 0 0 18px;
+
+  color: var(--muted);
+  font-size: 11px;
+  text-align: center;
+}
+
+.payment-recipient span {
+  display: block;
+  margin-top: 7px;
+
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 700;
+
+  overflow-wrap: anywhere;
+}
+
+.qr-card .button {
+  margin-top: 13px;
+}
+
+.qr-help {
+  margin: 12px 0 18px;
+
+  color: #a2ae91;
+  font-size: 10px;
+  text-align: center;
 }
 
 .registration-note {
@@ -689,39 +880,67 @@ a:focus-visible {
   text-align: center;
 }
 
-.payment-placeholder {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-
-  margin-top: 23px;
-  padding-top: 19px;
+.verification-note {
+  margin-top: 20px;
+  padding-top: 17px;
 
   border-top: 1px solid #303d24;
-}
 
-.payment-dot {
-  flex: 0 0 auto;
-
-  width: 6px;
-  height: 6px;
-
-  margin-top: 6px;
-
-  background: #8b996a;
-  border-radius: 50%;
-}
-
-.payment-placeholder h3 {
-  color: #c3cdae;
+  color: #c0cba9;
   font-size: 11px;
 }
 
-.payment-placeholder p {
-  margin: 4px 0 0;
 
-  color: #8e9a7e;
+/* ==========================================
+   RECEIPT DETAILS
+   ========================================== */
+
+.receipt-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 13px;
+}
+
+.receipt-item {
+  padding: 19px;
+
+  background: rgba(9, 12, 7, 0.55);
+  border: 1px solid #303a25;
+  border-radius: 10px;
+}
+
+.receipt-item > span {
+  display: block;
+  margin-bottom: 12px;
+
+  color: var(--accent);
   font-size: 10px;
+  font-weight: 700;
+}
+
+.receipt-item h3 {
+  font-size: 13px;
+}
+
+.receipt-item p {
+  margin: 7px 0 0;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.submission-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 22px;
+
+  margin-top: 26px;
+}
+
+.submission-actions .muted {
+  max-width: 310px;
+  margin: 0;
+  font-size: 11px;
 }
 
 
@@ -739,6 +958,10 @@ a:focus-visible {
 }
 
 .contact-section .muted {
+  max-width: 510px;
+  margin-left: auto;
+  margin-right: auto;
+
   font-size: 12px;
 }
 
@@ -791,7 +1014,6 @@ a:focus-visible {
 
 .site-footer p {
   margin: 5px 0 0;
-
   color: #8f9a7f;
   font-size: 10px;
 }
@@ -803,6 +1025,10 @@ a:focus-visible {
 }
 
 .footer-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+
   color: #aab59a;
   font-size: 10px;
   text-decoration: none;
@@ -814,7 +1040,7 @@ a:focus-visible {
 
 
 /* ==========================================
-   TABLET LAYOUT
+   TABLET USERS
    ========================================== */
 
 @media (max-width: 950px) {
@@ -833,7 +1059,8 @@ a:focus-visible {
     gap: 18px;
   }
 
-  .registration-section {
+  .registration-section,
+  .payment-section {
     gap: 25px;
     padding: 30px;
   }
@@ -845,12 +1072,16 @@ a:focus-visible {
   .stat-value {
     font-size: 36px;
   }
+
+  .receipt-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 
 /* ==========================================
    MOBILE USERS — SPECIAL MOBILE SECTION
-   Edit phone layouts in this section.
+   Edit phone layouts here.
    ========================================== */
 
 @media (max-width: 700px) {
@@ -913,7 +1144,7 @@ a:focus-visible {
   .hero h1 {
     margin: 23px 0 20px;
 
-    font-size: clamp(35px, 9.2vw, 58px);
+    font-size: clamp(34px, 9.2vw, 58px);
     line-height: 1.08;
     letter-spacing: -1.8px;
   }
@@ -924,7 +1155,8 @@ a:focus-visible {
   }
 
   .hero-actions {
-    gap: 18px;
+    width: 100%;
+    gap: 15px;
     margin: 25px 0;
   }
 
@@ -945,7 +1177,11 @@ a:focus-visible {
     font-size: 11px;
   }
 
-  .deadline-note {
+  .availability-notice {
+    padding: 12px;
+  }
+
+  .availability-notice p {
     font-size: 10px;
   }
 
@@ -963,7 +1199,6 @@ a:focus-visible {
     flex-direction: column;
     align-items: flex-start;
     gap: 16px;
-
     margin-bottom: 22px;
   }
 
@@ -1031,27 +1266,68 @@ a:focus-visible {
     font-size: 11px;
   }
 
-  .registration-section {
+  .registration-section,
+  .payment-section {
     grid-template-columns: 1fr;
     gap: 26px;
   }
 
-  .registration-copy h2 {
-    font-size: 34px;
+  .registration-copy h2,
+  .payment-copy h2 {
+    font-size: 33px;
   }
 
-  .registration-card {
+  .registration-card,
+  .qr-card {
     padding: 23px 18px;
   }
 
-  .registration-price {
-    font-size: 50px;
-  }
-
-  .registration-card .button {
+  .registration-card .button,
+  .qr-card .button {
     min-height: 52px;
     padding: 14px 12px;
     font-size: 12px;
+  }
+
+  .payment-amount {
+    font-size: 54px;
+  }
+
+  .payment-qr-frame {
+    width: min(100%, 250px);
+    padding: 18px;
+  }
+
+  .payment-recipient span {
+    font-size: 12px;
+  }
+
+  .payment-checklist {
+    gap: 12px;
+  }
+
+  .receipt-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .receipt-item {
+    padding: 17px;
+  }
+
+  .submission-actions {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .submission-actions .button {
+    width: 100%;
+  }
+
+  .submission-actions .muted {
+    max-width: 100%;
+    text-align: center;
   }
 
   .contact-section {
@@ -1076,13 +1352,10 @@ a:focus-visible {
   }
 
   .footer-links {
-    gap: 20px;
+    gap: 15px 20px;
   }
 
   .footer-links a {
-    display: inline-flex;
-    align-items: center;
-    min-height: 44px;
     font-size: 11px;
   }
 }
@@ -1103,109 +1376,5 @@ a:focus-visible {
 
   .button-primary:hover {
     transform: none;
-  }
-}
-/* ==========================================
-   PAYMENT QR AND RECEIPT INSTRUCTIONS
-   ========================================== */
-
-.payment-box {
-  margin-top: 26px;
-  padding-top: 24px;
-  border-top: 1px solid var(--border);
-}
-
-.payment-box h3 {
-  margin: 12px 0;
-  color: var(--accent);
-  font-size: 20px;
-}
-
-.payment-description {
-  color: var(--muted);
-  font-size: 12px;
-  line-height: 1.7;
-}
-
-.payment-qr-frame {
-  width: min(100%, 250px);
-  margin: 22px auto;
-  padding: 16px;
-  background: #ffffff;
-  border-radius: 14px;
-}
-
-.payment-qr {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
-.payment-recipient {
-  color: var(--muted);
-  font-size: 11px;
-  text-align: center;
-}
-
-.payment-recipient span {
-  display: block;
-  margin-top: 6px;
-  color: var(--text);
-  font-size: 13px;
-  font-weight: 700;
-  overflow-wrap: anywhere;
-}
-
-.payment-box .button {
-  margin-top: 14px;
-}
-
-.payment-steps {
-  display: grid;
-  gap: 10px;
-  margin: 22px 0;
-  padding-left: 20px;
-  color: #c6ceba;
-  font-size: 12px;
-}
-
-.payment-steps li::marker {
-  color: var(--accent);
-  font-weight: 700;
-}
-
-.payment-warning {
-  margin-top: 18px;
-  padding: 13px;
-  background: rgba(230, 255, 120, 0.04);
-  border: 1px solid #526237;
-  border-radius: 8px;
-  color: #c3cda9;
-  font-size: 11px;
-  line-height: 1.7;
-}
-
-
-/* ==========================================
-   MOBILE USERS — PAYMENT SECTION
-   ========================================== */
-
-@media (max-width: 700px) {
-  .payment-box {
-    margin-top: 22px;
-    padding-top: 20px;
-  }
-
-  .payment-qr-frame {
-    width: min(100%, 240px);
-  }
-
-  .payment-box .button {
-    min-height: 50px;
-    font-size: 12px;
-  }
-
-  .payment-steps {
-    gap: 12px;
   }
 }
